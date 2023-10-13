@@ -1,19 +1,19 @@
 <template>
-    <Header></Header>
-    <RouterView>
-    </RouterView>
+  <Header></Header>
+  <RouterView> </RouterView>
+  <Footer />
 </template>
 
 <script>
 import Header from '~/components/Header';
-export default{
-    data(){
-
-    },
-    components : {
-        Header
-    }
-}
+import Footer from './components/Footer';
+export default {
+  data() {},
+  components: {
+    Header,
+    Footer,
+  },
+};
 </script>
 
 <style lang="scss">
