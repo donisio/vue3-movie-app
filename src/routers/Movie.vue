@@ -85,18 +85,18 @@ export default {
   },
   methods: {
     requestDiffSizeImage(url, size =700){
+      console.log(url);
       if( !url || url === 'N/A' ){
         this.imageLoading = false;
         return '';
       } else {
-        const src =  url.replace('SX300', `SX${size}`);
+        const src = url.replace('SX300', `SX${size}`);
         this.$loadImage(src).then(()=>{
           this.imageLoading = false;
         });
+        return src;
       }
-      return src;
     }
-
   },
 
 };
