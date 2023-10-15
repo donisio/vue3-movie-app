@@ -54,7 +54,6 @@ import Loader from '~/components/Loader'
 </script>
 
 <style lang="scss" scoped>
-    @import '~/scss/main';
     .about{
         text-align: center;
         .photo{

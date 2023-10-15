@@ -81,7 +81,12 @@ module.exports = {
           //     }
           //   }
           // },
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options:{
+              additionalData: '@import "~/scss/main";',
+            }
+          },
         ]
       },
       {

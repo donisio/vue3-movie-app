@@ -75,7 +75,6 @@
     }
 </script>
 <style lean="scss" scoped>
-@import '~/scss/main';
 .container {
     display: flex;
     > * {
