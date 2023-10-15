@@ -14,7 +14,8 @@
 </template>
 
 <script>
-import Loader from '~/components/Loader'
+import Loader from '~/components/Loader';
+import { mapState } from 'vuex'
   export default{
     components:{
         Loader,
@@ -25,21 +26,13 @@ import Loader from '~/components/Loader'
         }
     },
     computed: {
-        image(){
-            return this.$store.state.about.image
-        },
-        name(){
-            return this.$store.state.about.name
-        },
-        email(){
-            return this.$store.state.about.email
-        },
-        blog(){
-            return this.$store.state.about.blog
-        },
-        phone(){
-            return this.$store.state.about.phone
-        }
+        ...mapState('about', [
+            'image',
+            'name',
+            'email',
+            'blog',
+            'phone'
+        ]),
     },
     mounted(){
         this.init();

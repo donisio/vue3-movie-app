@@ -32,6 +32,8 @@ export default {
 
     resetMovies(state) {
       state.movies = [];
+      state.message = 'Search For the movie title!',
+      state.loading = false;
     },
   },
   // 비동기로 동작 한다.

@@ -15,6 +15,8 @@
 <script>
 import Movieitem from '~/components/Movieitem';
 import Loader from '~/components/Loader';
+import { mapState } from 'vuex';
+
 export default {
   components: {
     Movieitem,
@@ -26,16 +28,11 @@ export default {
     };
   },
   computed: {
-    movies() {
-      return this.$store.state.movie.movies;
-    },
-    message() {
-      return this.$store.state.movie.message;
-    },
-
-    loading() {
-      return this.$store.state.movie.loading;
-    },
+    ...mapState('movie', [
+            'movies',
+            'message',
+            'loading',
+        ]),
   },
 };
 </script>
