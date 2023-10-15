@@ -75,32 +75,52 @@
     }
 </script>
 <style lean="scss" scoped>
-    .container {
+@import '~/scss/main';
+.container {
+    display: flex;
+    > * {
+        margin-right: 10px;
+        font-size: 15px;
+        &:last-child{
+            margin-right: 0px;
+        }
+    }
+    .selects{
         display: flex;
-        > * {
-            margin-right: 10px;
-            font-size: 15px;
+        
+        select {
+            width: 120px;
+            margin-left: 10PX;
             &:last-child{
                 margin-right: 0px;
             }
         }
-        .selects{
-            display: flex;
-           
-            select {
-                width: 120px;
-                margin-left: 10PX;
-                &:last-child{
-                    margin-right: 0px;
-                }
-            }
+    }
+
+    .btn{
+        width: 120px;
+        height: 50px;
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+
+    @include media-breakpoint-down(lg){
+        display: block;
+        input {
+            margin-right: 0;
+            margin-bottom: 10px;
         }
 
-        .btn{
-            width: 120px;
-            height: 50px;
-            font-weight: 700;
-            flex-shrink: 0;
+        .selects {
+            margin-right: 0;
+            margin-bottom: 10px;
+            select {
+                width: 100%
+            }
+        }
+        .btn {
+            width: 100%;
         }
     }
+}
 </style>
