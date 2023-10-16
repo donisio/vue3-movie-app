@@ -32,8 +32,7 @@ export default {
 
     resetMovies(state) {
       state.movies = [];
-      state.message = 'Search For the movie title!',
-      state.loading = false;
+      (state.message = 'Search For the movie title!'), (state.loading = false);
     },
   },
   // 비동기로 동작 한다.
@@ -78,7 +77,7 @@ export default {
             });
           }
         }
-      } catch (message) {
+      } catch ({ message }) {
         commit('updateState', {
           movies: [],
           message: message,
@@ -100,7 +99,6 @@ export default {
       });
       try {
         const res = await _fetchmovie(payload);
-        console.log(res);
         commit('updateState', {
           theMovie: res.data,
         });
@@ -117,24 +115,6 @@ export default {
   },
 };
 
-function _fetchmovie(payload) {
-  const { title, type, page, year, id } = payload;
-  const OMDB_API_KEY = '1d4b6ef6';
-  const url = id
-    ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}`
-    : `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`;
-
-  return new Promise((resolve, reject) => {
-    axios
-      .get(url)
-      .then(res => {
-        if (res.data.Error) {
-          reject(res.data.Error);
-        }
-        resolve(res);
-      })
-      .catch(error => {
-        reject(error.message);
-      });
-  });
+async function _fetchmovie(payload) {
+  return await axios.post('/.netlify/functions/movie', payload);
 }
